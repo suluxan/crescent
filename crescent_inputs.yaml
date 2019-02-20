@@ -1,0 +1,34 @@
+# CELLRANGER
+run_name: test1_premrna_cwl_h4h2
+sample: GBM-nuclei
+jobmode: torque
+fastqs:
+  class: Directory
+  path: /cluster/projects/pughlab/data/171205_D00355_0192_BCBRP8ANXX_Troy/fastq
+transcriptome:
+  class: Directory
+  path: /cluster/home/smohanra/pughlab/projects/crescent/ref/GRCh38-1.2.0_premrna
+# SEURAT
+R_script: 
+  class: File
+  path: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/javier/Seurat_clustering_wrapper/Runs_Seurat_Clustering.R
+#sc_input:
+#  class: Directory
+#  path: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/javier/example_files/examples/inputs/from_cellranger/outs/filtered_gene_bc_matrices
+sc_input_type: 10X
+#resolution:
+#outdir: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/javier/seurat_outputs
+outdir:
+  class: Directory
+  path: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/javier/seurat_outputs
+project_id: example_h4h_10x_cwl
+summary_plots: N
+#colour_tsne_discrete:
+#  class: File
+#  path:
+list_genes: MALAT1,GAPDH
+#opacity: 
+#pca_dimensions: 
+#percent_mito:
+#number_genes:
+#return_threshold: torque
