@@ -5,7 +5,6 @@ cwlVersion: v1.0
 class: Workflow
 
 inputs:
-# Cellranger
   run_name:
     type: string
 
@@ -21,12 +20,8 @@ inputs:
   jobmode:
     type: string?
 
-# Seurat
   R_script:
     type: File
-
-#  sc_input:
-#    type: Directory
 
   sc_input_type:
     type: string
