@@ -66,8 +66,6 @@ steps:
             run_name: run_name
             transcriptome: transcriptome
             fastqs: fastqs
-            sample: sample
-            jobmode: jobmode
 
         out: [cellranger_output]
 
