@@ -14,12 +14,6 @@ inputs:
   fastqs:
     type: Directory
 
-  sample:
-    type: string
-
-  jobmode:
-    type: string?
-
   R_script_normalize:
     type: File
     
