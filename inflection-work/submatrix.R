@@ -39,8 +39,6 @@ option_list <- list(
               Or type a *numeric value* to print genes with a *sum* across all barcodes >= *numeric value*
               Or type 'ALL' to print all genes from --input into outfile"),
 #
-  make_option(c("-o", "--outdir"), default="selected_gene_bc_matrices",
-              help="A path/name for the directory where the new mtx files will be saved")
   )
 
 opt <- parse_args(OptionParser(option_list=option_list))
@@ -48,7 +46,7 @@ opt <- parse_args(OptionParser(option_list=option_list))
 Input          <- opt$input
 SelectBarcodes <- opt$select_barcodes
 SelectGenes    <- opt$select_genes
-Outdir         <- opt$outdir
+Outdir         <- "SUBMATRIX"
 PrefixOutfiles <- "selected_gene_bc_matrices"
 print(SelectBarcodes)
 
@@ -69,10 +67,10 @@ for (param in ListMandatory) {
 ### Create outdirs
 ####################################
 
-CommandsToGetUserHomeDirectory<-("eval echo \"~$USER\"")
-UserHomeDirectory<-system(command = CommandsToGetUserHomeDirectory, input = NULL, wait = T, intern = T)
+#CommandsToGetUserHomeDirectory<-("eval echo \"~$USER\"")
+#UserHomeDirectory<-system(command = CommandsToGetUserHomeDirectory, input = NULL, wait = T, intern = T)
 #
-Outdir<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Outdir)
+#Outdir<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Outdir)
 OutdirFinal<-paste(Outdir, "/selected_gene_bc_matrices",  sep = "", collapse = "")
 dir.create(file.path(OutdirFinal), recursive = T)
 

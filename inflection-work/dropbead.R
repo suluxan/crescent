@@ -29,9 +29,6 @@ option_list <- list(
               151561  CGGCTGCTAATC
               Presumably produced by Dropseq-tools 'BAMTagHistogram'"),
   #   
-  make_option(c("-o", "--outdir"), default="NA",
-              help="A path/name for the results directory"),
-  #
   make_option(c("-p", "--prefix_outfiles"), default="NA",
               help="A prefix for outfile names, e.g. your project ID")
 
@@ -40,9 +37,10 @@ option_list <- list(
 opt <- parse_args(OptionParser(option_list=option_list))
 
 Infile          <- opt$infile
-Outdir          <- opt$outdir
+#Outdir          <- opt$outdir
 PrefixOutfiles  <- opt$prefix_outfiles
-Tempdir         <- "~/temp" ## Using this for temporary storage of outfiles because sometimes long paths of outdirectories casuse R to leave outfiles unfinished
+#Tempdir         <- "~/temp" ## Using this for temporary storage of outfiles because sometimes long paths of outdirectories casuse R to leave outfiles unfinished
+Tempdir         <- "DROPBEAD"
 
 MaxNumberOfCells <- 30000 ### Note this parameter may change the inflection point
 
@@ -64,18 +62,18 @@ for (param in ListMandatory) {
 ### Create outdirs and get path of files
 ### Basically replacing any '~/' by the User HOME, because otherwise it conflicts with system(...)
 ####################################
-writeLines("\n*** Create outdirs ***\n")
-CommandsToGetUserHomeDirectory<-("eval echo \"~$USER\"")
-UserHomeDirectory<-system(command = CommandsToGetUserHomeDirectory, input = NULL, wait = T, intern = T)
+#writeLines("\n*** Create outdirs ***\n")
+#CommandsToGetUserHomeDirectory<-("eval echo \"~$USER\"")
+#UserHomeDirectory<-system(command = CommandsToGetUserHomeDirectory, input = NULL, wait = T, intern = T)
 #
-Outdir<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Outdir)
-Tempdir<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Tempdir)
-Outdir<-gsub("/$", "", Outdir)
-Tempdir<-gsub("/$", "", Tempdir)
+#Outdir<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Outdir)
+#Tempdir<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Tempdir)
+#Outdir<-gsub("/$", "", Outdir)
+#Tempdir<-gsub("/$", "", Tempdir)
 #
-Infile<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Infile)
+#Infile<-gsub("^~/",paste(c(UserHomeDirectory,"/"), sep = "", collapse = ""), Infile)
 #
-dir.create(file.path(Outdir),   showWarnings = F, recursive = T)
+#dir.create(file.path(Outdir),   showWarnings = F, recursive = T)
 dir.create(file.path(Tempdir),  showWarnings = F, recursive = T)
 
 OutPdf<-paste(Tempdir,"/", PrefixOutfiles, ".kneeplot.pdf",collapse="",sep="")
@@ -123,11 +121,11 @@ write(file = OutfileCPUusage, x=c(ReportTime))
 ### Moving outfiles into outdir
 ####################################
 
-outfiles_to_move <- list.files(Tempdir,pattern = c(paste(PrefixOutfiles, ".kneeplot", sep=""), paste(PrefixOutfiles, ".reads_per_barcode.tsv", sep="")), full.names = F)
-sapply(outfiles_to_move,FUN=function(eachFile){
-  file.copy(from=paste(Tempdir,"/",eachFile,sep=""),to=paste(Outdir,"/",eachFile,sep=""),overwrite=T)
-  file.remove(paste(Tempdir,"/",eachFile,sep=""))
-})
+#outfiles_to_move <- list.files(Tempdir,pattern = c(paste(PrefixOutfiles, ".kneeplot", sep=""), paste(PrefixOutfiles, ".reads_per_barcode.tsv", sep="")), full.names = F)
+#sapply(outfiles_to_move,FUN=function(eachFile){
+#  file.copy(from=paste(Tempdir,"/",eachFile,sep=""),to=paste(Outdir,"/",eachFile,sep=""),overwrite=T)
+#  file.remove(paste(Tempdir,"/",eachFile,sep=""))
+#})
 
 ####################################
 ### Finish
