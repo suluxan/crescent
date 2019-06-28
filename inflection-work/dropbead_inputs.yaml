@@ -1,0 +1,11 @@
+R_script: 
+  class: File
+  path: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/javier/dropbead/dropbead.R
+tsv_input:
+  class: File
+  path: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/possorted_genome_reads_per_barcode.tsv
+dropbead_project_id: example
+dropbead_outdir:
+  class: Directory
+  path: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/dropbead_outputs
+

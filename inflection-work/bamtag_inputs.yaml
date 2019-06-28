@@ -1,0 +1,9 @@
+jar_executable: 
+  class: File
+  path: /cluster/home/smohanra/pughlab/projects/crescent/toil-example/cwl/cr/Drop-seq_tools-2.1.0/jar/dropseq.jar
+tool_name: BamTagHistogram
+bamtag_tag: CB
+bamtag_input:
+  class: File
+  path: /cluster/home/smohanra/pughlab/projects/crescent/premrna_test/test0/troy_test1_premrna0/outs/possorted_genome_bam.bam
+bamtag_output_string: possorted_genome_reads_per_barcode.tsv
