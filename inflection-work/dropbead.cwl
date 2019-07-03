@@ -9,6 +9,9 @@ inputs:
     type: File
     inputBinding: 
       position: 0 
+    default:
+      class: File
+      location: dropbead.R
   
   tsv_input:
     type: File

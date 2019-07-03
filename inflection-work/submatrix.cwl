@@ -14,6 +14,9 @@ inputs:
     type: File
     inputBinding: 
       position: 0 
+    default:
+      class: File
+      location: submatrix.R
   
   mtx_files:
     type: Directory

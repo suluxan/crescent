@@ -16,8 +16,8 @@ inputs:
   bamtag_output_string:
     type: string 
 
-  R_script_dropbead:
-    type: File 
+#  R_script_dropbead:
+#    type: File 
 
 #  tsv_input:
 #    type: File
@@ -25,8 +25,8 @@ inputs:
   dropbead_project_id: 
     type: string 
 
-  R_script_inflection:
-    type: File
+#  R_script_inflection:
+#    type: File
 
 #  inflection_point:
 #    type: File
@@ -35,8 +35,8 @@ inputs:
 #    type: File
 
 
-  R_script_submatrix:
-    type: File 
+#  R_script_submatrix:
+#    type: File 
 
   mtx_files: 
     type: Directory
@@ -57,7 +57,7 @@ steps:
     dropbead:
         run: dropbead.cwl
         in:
-            R_script_dropbead: R_script_dropbead
+ #           R_script_dropbead: R_script_dropbead
             tsv_input: bamtag/bamtag_output
             dropbead_project_id: dropbead_project_id 
 
@@ -66,7 +66,7 @@ steps:
     inflection:
         run: inflection.cwl
         in:
-            R_script_inflection: R_script_inflection
+ #           R_script_inflection: R_script_inflection
             inflection_point: dropbead/dropbead_output
             input_tsv: bamtag/bamtag_output
 
@@ -75,7 +75,7 @@ steps:
     submatrix:
         run: submatrix.cwl
         in:
-            R_script_submatrix: R_script_submatrix
+ #           R_script_submatrix: R_script_submatrix
             mtx_files: mtx_files
             final_tsv: inflection/inflection_output 
 

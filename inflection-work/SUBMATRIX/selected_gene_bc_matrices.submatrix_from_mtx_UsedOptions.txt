@@ -1,0 +1,6 @@
+Wed Jul 03 2019 19:46:05
+
+
+Options used:
+-i	input	/var/lib/cwl/stga97a3b21-f003-4d90-869e-a466ace11062/raw_feature_bc_matrix
+-b	select_barcodes	/var/lib/cwl/stg66c812d7-e8c3-456d-a030-399133047ee5/filtered_inflection_final.tsv
