@@ -126,13 +126,13 @@ print("After submatrix reading")
 ####################################
 print("Before out writing")
 write10xCounts(path = OutdirFinal, x = counts(submat.sce) , barcodes=colnames(submat.sce), gene.id=rowData(submat.sce)$ID,
-               gene.symbol=rowData(submat.sce)$Symbol, overwrite=T)
+               gene.symbol=rowData(submat.sce)$Symbol, overwrite=T, version=c("3"))
 print("After out writing")
 
 ####################################
 ### Report used options
 ####################################
-OutfileOptionsUsed<-paste(OutdirFinal,"/",PrefixOutfiles,".submatrix_from_mtx_UsedOptions.txt", sep="")
+OutfileOptionsUsed<-paste(Outdir,"/",PrefixOutfiles,".submatrix_from_mtx_UsedOptions.txt", sep="")
 TimeOfRun<-format(Sys.time(), "%a %b %d %Y %X")
 write(file = OutfileOptionsUsed, x=c(TimeOfRun,"\n","Options used:"))
 
@@ -146,7 +146,7 @@ for (optionInput in option_list) {
 EndTimeOverall<-Sys.time()
 
 TookTimeOverall <-format(difftime(EndTimeOverall, StartTimeOverall, units = "secs"))
-OutfileCPUusage<-paste(OutdirFinal,"/",PrefixOutfiles,".submatrix_from_mtx_CPUusage.txt", sep="")
+OutfileCPUusage<-paste(Outdir,"/",PrefixOutfiles,".submatrix_from_mtx_CPUusage.txt", sep="")
 ReportTime<-c(
   paste("overall",TookTimeOverall,collapse = "\t")
 )
