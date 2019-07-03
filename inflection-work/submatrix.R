@@ -80,6 +80,7 @@ dir.create(file.path(OutdirFinal), recursive = T)
 
 print("Before matrix reading")
 print(Input)
+#fullmat.sce<-read10xCounts(samples = Input, col.names = T, type=c("sparse"), version=c("3"))
 fullmat.sce<-read10xCounts(samples = Input, col.names = T)
 print("After matrix reading")
 

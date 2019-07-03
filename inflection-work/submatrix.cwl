@@ -2,9 +2,9 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-requirements:
-  DockerRequirement:
-    dockerImageId: crescent-v3
+#requirements:
+#  DockerRequirement:
+#    dockerImageId: crescent-v3
 
 baseCommand: [Rscript]
 

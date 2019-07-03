@@ -6,4 +6,4 @@ R_script_submatrix:
   path: /Users/smohanra/Documents/crescent/crescent-v3/github/crescent/inflection-work/submatrix.R
 mtx_files:
   class: Directory
-  path: "/Users/smohanra/Documents/crescent/crescent-v3/fastqs/mtx/raw_feature_bc_matrix/"
+  path: /Users/smohanra/Documents/crescent/crescent-v3/fastqs/mtx/raw_feature_bc_matrix
