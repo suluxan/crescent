@@ -1,0 +1,18 @@
+bamtag_tag: CB
+bamtag_input:
+  class: File
+  path: /Users/smohanra/Documents/crescent/crescent-v3/fastqs/bam/pbmc_1k_v3_possorted_genome_bam.bam
+bamtag_output_string: possorted_genome_reads_per_barcode.tsv
+R_script_dropbead:
+  class: File
+  path: /Users/smohanra/Documents/crescent/crescent-v3/github/crescent/inflection-work/dropbead.R
+dropbead_project_id: dropbead_test
+R_script_inflection:
+  class: File
+  path: /Users/smohanra/Documents/crescent/crescent-v3/github/crescent/inflection-work/inflection_filter.R
+R_script_submatrix:
+  class: File
+  path: /Users/smohanra/Documents/crescent/crescent-v3/github/crescent/inflection-work/submatrix.R
+mtx_files:
+  class: Directory
+  path: /Users/smohanra/Documents/crescent/crescent-v3/fastqs/mtx/raw_feature_bc_matrix/

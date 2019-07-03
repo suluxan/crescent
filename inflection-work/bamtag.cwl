@@ -2,19 +2,9 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-baseCommand: [java, -jar]
+baseCommand: [BamTagHistogram]
 
 inputs:
-  jar_executable:
-    type: File
-    inputBinding: 
-      position: 0 
-
-  tool_name:
-    type: string
-    inputBinding: 
-      position: 1  
-
   bamtag_tag:
     type: string
     inputBinding: 

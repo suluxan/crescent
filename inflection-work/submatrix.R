@@ -31,13 +31,13 @@ option_list <- list(
               help="One of three options:
               A path/name for the *file* with the list of barcodes to select, one-per-row
               Or type a *numeric value* to print barcodes with a *sum* across all genes >= *numeric value*
-              Or type 'ALL' to print all barcodes from --input into outfile"),
+              Or type 'ALL' to print all barcodes from --input into outfile")
 #
-  make_option(c("-g", "--select_genes"), default="NA",
-              help="One of three options:
-              A path/name for the *file* with the list of genes to select, one-per-row
-              Or type a *numeric value* to print genes with a *sum* across all barcodes >= *numeric value*
-              Or type 'ALL' to print all genes from --input into outfile"),
+#  make_option(c("-g", "--select_genes"), default="NA",
+#              help="One of three options:
+#              A path/name for the *file* with the list of genes to select, one-per-row
+#              Or type a *numeric value* to print genes with a *sum* across all barcodes >= *numeric value*
+#              Or type 'ALL' to print all genes from --input into outfile"),
 #
   )
 
@@ -45,7 +45,7 @@ opt <- parse_args(OptionParser(option_list=option_list))
 
 Input          <- opt$input
 SelectBarcodes <- opt$select_barcodes
-SelectGenes    <- opt$select_genes
+SelectGenes    <- "ALL"
 Outdir         <- "SUBMATRIX"
 PrefixOutfiles <- "selected_gene_bc_matrices"
 print(SelectBarcodes)
@@ -79,6 +79,7 @@ dir.create(file.path(OutdirFinal), recursive = T)
 ####################################
 
 print("Before matrix reading")
+print(Input)
 fullmat.sce<-read10xCounts(samples = Input, col.names = T)
 print("After matrix reading")
 

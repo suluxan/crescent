@@ -2,26 +2,26 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-#requirements:
-#  DockerRequirement:
-#    dockerImageId: crescent-v3
+requirements:
+  DockerRequirement:
+    dockerImageId: crescent-v3
 
 baseCommand: [Rscript]
 
 inputs:
 
-  R_script_inflection:
+  R_script_submatrix:
     type: File
     inputBinding: 
       position: 0 
-
-  inflection_point:
-    type: File
-    inputBinding: 
+  
+  mtx_files:
+    type: Directory
+    inputBinding:
       position: 1
       prefix: -i
 
-  input_tsv:
+  final_tsv:
     type: File
     inputBinding: 
       position: 2  
@@ -29,8 +29,8 @@ inputs:
 
   
 outputs:
-  inflection_output:
-    type: File
+  submatrix_output:
+    type: Directory
     outputBinding:
-      glob: filtered_inflection_final.tsv
+      glob: SUBMATRIX
 

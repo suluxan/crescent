@@ -5,7 +5,7 @@ class: CommandLineTool
 baseCommand: [Rscript]
 
 inputs:
-  R_script:
+  R_script_dropbead:
     type: File
     inputBinding: 
       position: 0 
@@ -16,12 +16,6 @@ inputs:
       position: 1 
       prefix: -i  
 
-  dropbead_outdir:
-    type: Directory
-    inputBinding: 
-      position: 2 
-      prefix: -o 
-
   dropbead_project_id:
     type: string
     inputBinding: 
@@ -29,7 +23,7 @@ inputs:
       prefix: -p 
 
 outputs:
-  dropbead_plot_output:
-    type: Directory
+  dropbead_output:
+    type: File
     outputBinding:
-      glob: $(inputs.dropbead_outdir)
+      glob: DROPBEAD/$(inputs.dropbead_project_id).kneeplot_inflection.txt 

@@ -21,7 +21,7 @@ Barcodes              <- opt$barcodes
 
 a <- read.csv(file = Inflection, sep = "\t", header = F)
 
-b <- read.csv(file = Barcodes, sep = "\t", header = F)
+b <- read.csv(file = Barcodes, sep = "\t", header = F, comment.char = "#")
 
 c <- b[b$V1 > a$V1, ]
 
